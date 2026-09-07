@@ -95,11 +95,6 @@ h1 {
   transform: rotate(150deg);
 }
 
-.canopy {
-  position: absolute;
-  inset: 0;
-}
-
 .flower {
   position: absolute;
   width: 40px;
@@ -152,4 +147,134 @@ h1 {
   font-size: clamp(16px,4vw,23px);
 }
 
-#days
+#days {
+  margin-top: 7px;
+  font-size: clamp(21px,5vw,30px);
+  font-weight: bold;
+  color: #c83f78;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <h1>🌸 Il mio amore 🌸</h1>
+
+  <div class="subtitle">
+    è iniziato per te il <b>19 dicembre</b> 💗
+  </div>
+
+  <div class="tree">
+
+    <div id="canopy"></div>
+
+    <div class="branch b1"></div>
+    <div class="branch b2"></div>
+    <div class="branch b3"></div>
+
+    <div class="trunk"></div>
+
+  </div>
+
+  <div class="message">
+    Il mio amore è iniziato per te il 19 dicembre.
+    <div id="days"></div>
+  </div>
+
+  <div class="bottom">
+    🌸 🌷 🌸 🌷 🌸 🌷 🌸
+  </div>
+
+</div>
+
+<script>
+
+const oggi = new Date();
+
+let inizio = new Date(
+  oggi.getFullYear(),
+  11,
+  19
+);
+
+if (oggi < inizio) {
+  inizio.setFullYear(oggi.getFullYear() - 1);
+}
+
+const differenza =
+  oggi.setHours(0,0,0,0) -
+  inizio.setHours(0,0,0,0);
+
+const giorni =
+  Math.floor(differenza / 86400000);
+
+document.getElementById("days").textContent =
+  giorni + " giorni insieme 💗";
+
+
+const canopy =
+  document.getElementById("canopy");
+
+for (let i = 0; i < 65; i++) {
+
+  const fiore =
+    document.createElement("div");
+
+  fiore.className = "flower";
+
+  fiore.style.left =
+    (Math.random() * 220 + 20) + "px";
+
+  fiore.style.top =
+    (Math.random() * 290 + 5) + "px";
+
+  const grandezza =
+    0.45 + Math.random() * 0.65;
+
+  fiore.style.transform =
+    "scale(" + grandezza + ")";
+
+  fiore.style.animationDelay =
+    (Math.random() * 3) + "s";
+
+  canopy.appendChild(fiore);
+}
+
+
+for (let i = 0; i < 30; i++) {
+
+  const petalo =
+    document.createElement("div");
+
+  petalo.className = "petal";
+
+  petalo.textContent = "🌸";
+
+  petalo.style.left =
+    Math.random() * 100 + "vw";
+
+  petalo.style.animationDuration =
+    (5 + Math.random() * 8) + "s";
+
+  petalo.style.animationDelay =
+    (-Math.random() * 12) + "s";
+
+  document.body.appendChild(petalo);
+}
+
+</script>
+
+</body>
+</html>
