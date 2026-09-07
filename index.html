@@ -3,278 +3,474 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Il mio amore 💗</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  overflow: hidden;
-  background: #fff0f6;
-  font-family: Georgia, serif;
-  color: #87435f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
 }
 
-.card {
-  position: relative;
-  width: 94vw;
-  height: 94vh;
-  max-width: 720px;
-  max-height: 760px;
-  overflow: hidden;
-  text-align: center;
-  border-radius: 30px;
-  background: linear-gradient(#fff8fb, #ffe5f0);
-  box-shadow: 0 10px 40px rgba(200,63,120,.25);
+body{
+  background:#fff0f6;
+  font-family:Georgia,serif;
+  color:#914563;
+  text-align:center;
 }
 
-h1 {
-  margin: 35px 10px 5px;
-  font-size: clamp(28px, 7vw, 46px);
-  color: #c83f78;
+/* TITOLO */
+h1{
+  position:absolute;
+  top:20px;
+  left:0;
+  right:0;
+  margin:0;
+  z-index:10;
+  font-size:clamp(28px,7vw,43px);
+  color:#d84d87;
 }
 
-.subtitle {
-  margin: 0 20px;
-  font-size: clamp(16px, 4vw, 22px);
+.subtitle{
+  position:absolute;
+  top:75px;
+  left:15px;
+  right:15px;
+  z-index:10;
+  font-size:clamp(15px,4vw,21px);
 }
 
-.tree {
-  position: absolute;
-  left: 50%;
-  bottom: 90px;
-  transform: translateX(-50%);
-  width: 270px;
-  height: 430px;
+/* ALBERO */
+.tree{
+  position:absolute;
+  width:300px;
+  height:450px;
+  left:50%;
+  top:110px;
+  transform:translateX(-50%);
 }
 
-.trunk {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 45px;
-  height: 220px;
-  transform: translateX(-50%);
-  background: linear-gradient(90deg,#71352f,#b86b61,#71352f);
-  border-radius: 20px 20px 5px 5px;
+/* CHIOMA */
+#canopy{
+  position:absolute;
+  width:285px;
+  height:305px;
+  left:50%;
+  top:0;
+  transform:translateX(-50%);
 }
 
-.branch {
-  position: absolute;
-  height: 17px;
-  background: #814039;
-  border-radius: 20px;
-  transform-origin: left center;
+/* TRONCO */
+.trunk{
+  position:absolute;
+  width:40px;
+  height:235px;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  background:linear-gradient(
+    90deg,
+    #713832,
+    #a45d53,
+    #c17a70,
+    #8a463e,
+    #68332f
+  );
+  border-radius:25px 25px 12px 12px;
+  z-index:2;
 }
 
-.b1 {
-  width: 140px;
-  left: 135px;
-  bottom: 155px;
-  transform: rotate(-135deg);
+/* RAMI */
+.branch{
+  position:absolute;
+  height:14px;
+  background:#814139;
+  border-radius:20px;
+  transform-origin:left center;
+  z-index:1;
 }
 
-.b2 {
-  width: 120px;
-  left: 135px;
-  bottom: 195px;
-  transform: rotate(-160deg);
+.b1{
+  width:145px;
+  left:50%;
+  bottom:190px;
+  transform:rotate(-145deg);
 }
 
-.b3 {
-  width: 115px;
-  left: 135px;
-  bottom: 125px;
-  transform: rotate(150deg);
+.b2{
+  width:140px;
+  left:50%;
+  bottom:220px;
+  transform:rotate(-35deg);
 }
 
-.flower {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+.b3{
+  width:125px;
+  left:50%;
+  bottom:150px;
+  transform:rotate(155deg);
+}
+
+.b4{
+  width:120px;
+  left:50%;
+  bottom:175px;
+  transform:rotate(25deg);
+}
+
+/* FIORI */
+.flower{
+  position:absolute;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+
   background:
-    radial-gradient(circle,
-    #7d3154 0 10%,
-    #ff8fba 11% 35%,
-    #ffb6d1 36% 65%,
-    #ffd7e7 66%);
-  filter: drop-shadow(0 2px 3px rgba(160,40,90,.25));
-  animation: sway 3s ease-in-out infinite alternate;
+    radial-gradient(
+      circle at center,
+      #b82f68 0 14%,
+      transparent 15%
+    ),
+    radial-gradient(
+      circle at 50% 10%,
+      #ff8fba 0 28%,
+      transparent 29%
+    ),
+    radial-gradient(
+      circle at 90% 50%,
+      #ff9fc4 0 28%,
+      transparent 29%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      #ff8fba 0 28%,
+      transparent 29%
+    ),
+    radial-gradient(
+      circle at 10% 50%,
+      #ff9fc4 0 28%,
+      transparent 29%
+    );
+
+  animation:float 3s ease-in-out infinite alternate;
 }
 
-@keyframes sway {
-  to {
-    transform: translateY(5px) rotate(5deg);
+@keyframes float{
+  from{
+    transform:translateY(0);
+  }
+
+  to{
+    transform:translateY(5px);
   }
 }
 
-.petal {
-  position: absolute;
-  top: -50px;
-  font-size: 23px;
-  animation: fall linear infinite;
+/* POSIZIONE FIORI */
+.flower:nth-child(1){
+  left:125px;
+  top:10px;
 }
 
-@keyframes fall {
-  0% {
-    transform: translateY(-50px) rotate(0deg);
-    opacity: 0;
+.flower:nth-child(2){
+  left:80px;
+  top:25px;
+}
+
+.flower:nth-child(3){
+  left:170px;
+  top:25px;
+}
+
+.flower:nth-child(4){
+  left:45px;
+  top:65px;
+}
+
+.flower:nth-child(5){
+  left:120px;
+  top:55px;
+}
+
+.flower:nth-child(6){
+  left:195px;
+  top:65px;
+}
+
+.flower:nth-child(7){
+  left:20px;
+  top:105px;
+}
+
+.flower:nth-child(8){
+  left:75px;
+  top:100px;
+}
+
+.flower:nth-child(9){
+  left:145px;
+  top:95px;
+}
+
+.flower:nth-child(10){
+  left:215px;
+  top:105px;
+}
+
+.flower:nth-child(11){
+  left:5px;
+  top:150px;
+}
+
+.flower:nth-child(12){
+  left:55px;
+  top:145px;
+}
+
+.flower:nth-child(13){
+  left:115px;
+  top:140px;
+}
+
+.flower:nth-child(14){
+  left:175px;
+  top:145px;
+}
+
+.flower:nth-child(15){
+  left:230px;
+  top:150px;
+}
+
+.flower:nth-child(16){
+  left:25px;
+  top:195px;
+}
+
+.flower:nth-child(17){
+  left:80px;
+  top:190px;
+}
+
+.flower:nth-child(18){
+  left:140px;
+  top:185px;
+}
+
+.flower:nth-child(19){
+  left:200px;
+  top:190px;
+}
+
+.flower:nth-child(20){
+  left:250px;
+  top:195px;
+}
+
+.flower:nth-child(21){
+  left:55px;
+  top:235px;
+}
+
+.flower:nth-child(22){
+  left:105px;
+  top:230px;
+}
+
+.flower:nth-child(23){
+  left:165px;
+  top:230px;
+}
+
+.flower:nth-child(24){
+  left:215px;
+  top:235px;
+}
+
+.flower:nth-child(25){
+  left:90px;
+  top:270px;
+}
+
+.flower:nth-child(26){
+  left:130px;
+  top:265px;
+}
+
+.flower:nth-child(27){
+  left:175px;
+  top:270px;
+}
+
+/* FIORI CHE CADONO */
+.petal{
+  position:absolute;
+  top:-40px;
+  font-size:20px;
+  z-index:20;
+  pointer-events:none;
+
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  0%{
+    transform:translateY(-50px) rotate(0deg);
+    opacity:0;
   }
 
-  10% {
-    opacity: 1;
+  10%{
+    opacity:1;
   }
 
-  100% {
-    transform: translateY(850px) translateX(100px) rotate(360deg);
-    opacity: 0;
+  100%{
+    transform:
+      translateY(110vh)
+      translateX(120px)
+      rotate(420deg);
+    opacity:0;
   }
 }
 
-.message {
-  position: absolute;
-  bottom: 35px;
-  left: 15px;
-  right: 15px;
-  font-size: clamp(16px,4vw,23px);
+/* TESTO */
+.message{
+  position:absolute;
+  bottom:48px;
+  left:15px;
+  right:15px;
+  z-index:10;
+  font-size:clamp(16px,4vw,21px);
+  line-height:1.4;
 }
 
-#days {
-  margin-top: 7px;
-  font-size: clamp(21px,5vw,30px);
-  font-weight: bold;
-  color: #c83f78;
+#days{
+  margin-top:6px;
+  color:#d84d87;
+  font-size:clamp(18px,5vw,27px);
+  font-weight:bold;
 }
 
-.bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 55px;
-  font-size: 30px;
-  letter-spacing: 5px;
+/* FIORI IN FONDO */
+.hearts{
+  position:absolute;
+  bottom:8px;
+  left:0;
+  right:0;
+  font-size:24px;
+  z-index:10;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<h1>🌸 Il mio amore 🌸</h1>
 
-  <h1>🌸 Il mio amore 🌸</h1>
+<div class="subtitle">
+  è iniziato per te il <b>19 dicembre</b> 💗
+</div>
 
-  <div class="subtitle">
-    è iniziato per te il <b>19 dicembre</b> 💗
+<div class="tree">
+
+  <div id="canopy">
+
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+
   </div>
 
-  <div class="tree">
+  <div class="branch b1"></div>
+  <div class="branch b2"></div>
+  <div class="branch b3"></div>
+  <div class="branch b4"></div>
 
-    <div id="canopy"></div>
+  <div class="trunk"></div>
 
-    <div class="branch b1"></div>
-    <div class="branch b2"></div>
-    <div class="branch b3"></div>
+</div>
 
-    <div class="trunk"></div>
+<div class="message">
 
-  </div>
+  Il mio amore è iniziato per te il 19 dicembre.
 
-  <div class="message">
-    Il mio amore è iniziato per te il 19 dicembre.
-    <div id="days"></div>
-  </div>
+  <div id="days"></div>
 
-  <div class="bottom">
-    🌸 🌷 🌸 🌷 🌸 🌷 🌸
-  </div>
+</div>
 
+<div class="hearts">
+  🌸 🌷 🌸 🌷 🌸 🌷 🌸
 </div>
 
 <script>
 
-const oggi = new Date();
+/* CONTATORE */
+function updateCounter(){
 
-let inizio = new Date(
-  oggi.getFullYear(),
-  11,
-  19
-);
+  const now = new Date();
 
-if (oggi < inizio) {
-  inizio.setFullYear(oggi.getFullYear() - 1);
-}
+  let start = new Date(
+    now.getFullYear(),
+    11,
+    19,
+    0,
+    0,
+    0
+  );
 
-const differenza =
-  oggi.setHours(0,0,0,0) -
-  inizio.setHours(0,0,0,0);
+  if(now < start){
+    start.setFullYear(
+      now.getFullYear() - 1
+    );
+  }
 
-const giorni =
-  Math.floor(differenza / 86400000);
+  const difference = now - start;
 
-document.getElementById("days").textContent =
-  giorni + " giorni insieme 💗";
+  const days = Math.floor(
+    difference /
+    (1000 * 60 * 60 * 24)
+  );
 
+  const hours = Math.floor(
+    difference /
+    (1000 * 60 * 60)
+  ) % 24;
 
-const canopy =
-  document.getElementById("canopy");
+  const minutes = Math.floor(
+    difference /
+    (1000 * 60)
+  ) % 60;
 
-for (let i = 0; i < 65; i++) {
+  const seconds = Math.floor(
+    difference / 1000
+  ) % 60;
 
-  const fiore =
-    document.createElement("div");
-
-  fiore.className = "flower";
-
-  fiore.style.left =
-    (Math.random() * 220 + 20) + "px";
-
-  fiore.style.top =
-    (Math.random() * 290 + 5) + "px";
-
-  const grandezza =
-    0.45 + Math.random() * 0.65;
-
-  fiore.style.transform =
-    "scale(" + grandezza + ")";
-
-  fiore.style.animationDelay =
-    (Math.random() * 3) + "s";
-
-  canopy.appendChild(fiore);
-}
-
-
-for (let i = 0; i < 30; i++) {
-
-  const petalo =
-    document.createElement("div");
-
-  petalo.className = "petal";
-
-  petalo.textContent = "🌸";
-
-  petalo.style.left =
-    Math.random() * 100 + "vw";
-
-  petalo.style.animationDuration =
-    (5 + Math.random() * 8) + "s";
-
-  petalo.style.animationDelay =
-    (-Math.random() * 12) + "s";
-
-  document.body.appendChild(petalo);
-}
-
-</script>
-
-</body>
-</html>
+  document.getElementById("
